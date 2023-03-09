@@ -24,4 +24,44 @@ function getResults(query) {
 
 function displayResults(weather) {
   console.log(weather);
+  let city = document.querySelector(".location .sity");
+  city.innerHTML = `${weather.name}, ${weather.sys.country}`;
+
+  let now = new Date();
+  let date = document.querySelector(".location .data");
+  date.innerHTML = dateBuilder(now);
+}
+
+function dateBuilder(s) {
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = days[s.getDay()];
+  let date = s.getDate();
+  let month = months[s.getMonth()];
+  let year = s.getFullYear();
+
+  return `${day} ${date} ${month} ${year}`;
 }
