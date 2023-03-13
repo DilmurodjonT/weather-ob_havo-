@@ -30,6 +30,17 @@ function displayResults(weather) {
   let now = new Date();
   let date = document.querySelector(".location .data");
   date.innerHTML = dateBuilder(now);
+
+  let temp = document.querySelector(".temp");
+  temp.innerHTML = `${Math.round(weather.main.temp)}<span>°C</span>`;
+
+  let weatherEl = document.querySelector(".weather");
+  weatherEl.innerHTML = weather.weather[0].main;
+
+  let hilow = document.querySelector(".hi-low");
+  hilow.innerHTML = `${Math.round(weather.main.temp_min)}°C / ${Math.round(
+    weather.main.temp_max
+  )}°C`;
 }
 
 function dateBuilder(s) {
